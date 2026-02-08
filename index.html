@@ -1126,7 +1126,7 @@
                 <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
                 <div class="contact-detail-text">
                     <span>Email</span>
-                    <a href="/cdn-cgi/l/email-protection#eb9d82858a92808ac598ab8584999f838e8a989f8e9985c58e8f9e"><span class="__cf_email__" data-cfemail="85f3ecebe4fceee4abf6c5ebeaf7f1ede0e4f6f1e0f7ebabe0e1f0">[email&#160;protected]</span></a>
+                    <a href="mailto:vinayka.s@northeastern.edu">vinayka.s@northeastern.edu</a>
                 </div>
             </div>
 
@@ -1141,7 +1141,7 @@
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/shantesh-vinayka/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/Shanteshvinayka18" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="vinayka.s@northeastern.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:vinayka.s@northeastern.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
 
@@ -1170,7 +1170,7 @@
     <p>&copy; 2026 Shantesh Vinayka. All Rights Reserved.</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
     // ── Loader ──
     let percent = 0;
     const loaderPercent = document.getElementById('loader-percent');
@@ -1245,4 +1245,16 @@
     });
 
     // ── Scroll Reveal ──
-    const observer = new In
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
+
