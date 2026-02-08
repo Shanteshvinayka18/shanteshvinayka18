@@ -10,22 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #16161f;
-            --bg-card-hover: #1c1c28;
-            --accent: #6c63ff;
-            --accent-light: #8b83ff;
-            --accent-glow: rgba(108, 99, 255, 0.15);
-            --accent-secondary: #00d4aa;
-            --text-primary: #f0eef6;
-            --text-secondary: #9892a6;
-            --text-muted: #6b6580;
-            --border: rgba(108, 99, 255, 0.12);
-            --border-hover: rgba(108, 99, 255, 0.3);
-            --gradient-1: linear-gradient(135deg, #6c63ff, #00d4aa);
-            --gradient-2: linear-gradient(135deg, #6c63ff 0%, #a855f7 50%, #ec4899 100%);
-            --shadow-glow: 0 0 40px rgba(108, 99, 255, 0.1);
+            --bg-primary: #f8f9fc;
+            --bg-secondary: #eef0f6;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f3f9;
+            --accent: #4f46e5;
+            --accent-light: #6366f1;
+            --accent-glow: rgba(79, 70, 229, 0.08);
+            --accent-secondary: #0ea5e9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --border: rgba(79, 70, 229, 0.1);
+            --border-hover: rgba(79, 70, 229, 0.25);
+            --gradient-1: linear-gradient(135deg, #4f46e5, #0ea5e9);
+            --gradient-2: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #ec4899 100%);
+            --shadow-glow: 0 4px 30px rgba(79, 70, 229, 0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,11 +33,11 @@
         html {
             scroll-behavior: smooth;
             scrollbar-width: thin;
-            scrollbar-color: var(--accent) var(--bg-primary);
+            scrollbar-color: var(--accent) var(--bg-secondary);
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Times New Roman', Times, serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             overflow-x: hidden;
@@ -55,7 +55,7 @@
         }
         .loader.hidden { opacity: 0; visibility: hidden; }
         .loader-text {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 2rem; font-weight: 700;
             background: var(--gradient-1);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -73,7 +73,7 @@
         }
         @keyframes loadBar { to { width: 100%; } }
         .loader-percent {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 0.85rem; color: var(--text-muted);
         }
 
@@ -81,7 +81,7 @@
         .cursor-glow {
             position: fixed; width: 500px; height: 500px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(108,99,255,0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(79,70,229,0.05) 0%, transparent 70%);
             pointer-events: none; z-index: 9998;
             transform: translate(-50%, -50%);
             transition: left 0.3s ease, top 0.3s ease;
@@ -94,13 +94,13 @@
             display: flex; align-items: center; justify-content: space-between;
             z-index: 1000;
             backdrop-filter: blur(20px);
-            background: rgba(10, 10, 15, 0.75);
+            background: rgba(248, 249, 252, 0.85);
             border-bottom: 1px solid transparent;
             transition: all 0.4s ease;
         }
         .navbar.scrolled { border-bottom-color: var(--border); }
         .nav-logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 1.6rem; font-weight: 700;
             text-decoration: none;
             background: var(--gradient-1);
@@ -136,7 +136,7 @@
         }
 
         .section-label {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 0.75rem; text-transform: uppercase;
             letter-spacing: 3px; color: var(--accent);
             margin-bottom: 12px;
@@ -147,7 +147,7 @@
             background: var(--accent);
         }
         .section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 2.8rem; font-weight: 700;
             margin-bottom: 16px;
             line-height: 1.2;
@@ -166,11 +166,19 @@
             padding-top: 100px;
             position: relative;
         }
+        .hero-fade-in {
+            animation: heroFadeIn 1.5s ease forwards;
+            opacity: 0;
+        }
+        @keyframes heroFadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
         .hero-bg-grid {
             position: absolute; inset: 0;
             background-image:
-                linear-gradient(rgba(108,99,255,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(108,99,255,0.04) 1px, transparent 1px);
+                linear-gradient(rgba(79,70,229,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79,70,229,0.06) 1px, transparent 1px);
             background-size: 60px 60px;
             mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
         }
@@ -178,20 +186,20 @@
             position: absolute; border-radius: 50%; filter: blur(100px);
             opacity: 0.4; pointer-events: none;
         }
-        .hero-orb-1 { width: 400px; height: 400px; top: 10%; right: 10%; background: rgba(108,99,255,0.25); }
-        .hero-orb-2 { width: 300px; height: 300px; bottom: 20%; left: 5%; background: rgba(0,212,170,0.15); }
+        .hero-orb-1 { width: 400px; height: 400px; top: 10%; right: 10%; background: rgba(79,70,229,0.12); }
+        .hero-orb-2 { width: 300px; height: 300px; bottom: 20%; left: 5%; background: rgba(14,165,233,0.1); }
 
         .hero-content { position: relative; z-index: 2; display: flex; align-items: center; gap: 80px; width: 100%; }
         .hero-text { flex: 1; }
         .hero-greeting {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 0.9rem; color: var(--accent);
             margin-bottom: 16px;
             display: flex; align-items: center; gap: 10px;
         }
         .hero-greeting .line { width: 40px; height: 1px; background: var(--accent); }
         .hero-name {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 4.2rem; font-weight: 800;
             line-height: 1.1; margin-bottom: 20px;
         }
@@ -219,9 +227,9 @@
         }
         .btn-primary {
             background: var(--gradient-1); color: #fff;
-            box-shadow: 0 4px 20px rgba(108,99,255,0.3);
+            box-shadow: 0 4px 20px rgba(79,70,229,0.25);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(108,99,255,0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(79,70,229,0.35); }
         .btn-outline {
             background: transparent; color: var(--text-primary);
             border: 1px solid var(--border-hover);
@@ -242,7 +250,7 @@
         }
         .hero-image-frame::before {
             content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(108,99,255,0.1), transparent);
+            background: linear-gradient(135deg, rgba(79,70,229,0.08), transparent);
         }
         .hero-image-decoration {
             position: absolute; top: -12px; right: -12px;
@@ -257,7 +265,7 @@
         }
         .hero-stat { text-align: left; }
         .hero-stat-number {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 2.2rem; font-weight: 700;
             background: var(--gradient-1);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -269,6 +277,29 @@
 
         /* ── About ── */
         .about-content { display: flex; gap: 64px; align-items: flex-start; }
+        .about-photo {
+            flex-shrink: 0;
+            position: relative;
+            width: 300px; height: 360px;
+        }
+        .about-photo-frame {
+            width: 100%; height: 100%;
+            border-radius: 20px; overflow: hidden;
+            border: 2px solid var(--border);
+            background: var(--bg-card);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+        .about-photo-frame img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .about-photo-decoration {
+            position: absolute; top: -10px; left: -10px;
+            width: 100%; height: 100%;
+            border-radius: 20px;
+            border: 2px solid var(--accent);
+            opacity: 0.2; z-index: -1;
+        }
         .about-text { flex: 1; }
         .about-text p {
             color: var(--text-secondary); font-size: 1.02rem;
@@ -291,6 +322,52 @@
             font-size: 0.9rem; color: var(--text-secondary);
         }
 
+        /* ── Education ── */
+        .section-title-underline {
+            width: 50px; height: 4px; border-radius: 2px;
+            background: var(--gradient-1);
+            margin-top: -8px; margin-bottom: 48px;
+        }
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 28px;
+        }
+        .education-card {
+            padding: 36px 32px;
+            border-radius: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .education-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+        .education-icon {
+            width: 64px; height: 64px;
+            border-radius: 16px;
+            background: var(--accent-glow);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem; color: var(--accent);
+            margin: 0 auto 20px;
+        }
+        .education-card h3 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.2rem; font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .education-university {
+            color: var(--accent); font-size: 0.95rem;
+            font-weight: 500; margin-bottom: 6px;
+        }
+        .education-details {
+            color: var(--text-secondary); font-size: 0.88rem;
+        }
+
         /* ── Skills ── */
         .skills-tabs {
             display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap;
@@ -300,24 +377,25 @@
             background: var(--bg-card); border: 1px solid var(--border);
             color: var(--text-secondary); font-size: 0.88rem;
             cursor: pointer; transition: all 0.3s;
-            font-family: 'DM Sans', sans-serif; font-weight: 500;
+            font-family: 'Times New Roman', Times, serif; font-weight: 500;
         }
         .skill-tab.active, .skill-tab:hover {
             background: var(--accent-glow); border-color: var(--accent);
             color: var(--accent-light);
         }
         .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 14px;
         }
         .skill-card {
-            display: flex; flex-direction: column;
+            display: inline-flex;
             align-items: center; gap: 10px;
-            padding: 20px 12px; border-radius: 12px;
+            padding: 14px 22px; border-radius: 12px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             transition: all 0.3s; cursor: default;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
         .skill-card:hover {
             border-color: var(--border-hover);
@@ -325,13 +403,14 @@
             box-shadow: var(--shadow-glow);
         }
         .skill-card img, .skill-card i {
-            width: 36px; height: 36px;
-            font-size: 1.8rem;
+            width: 28px; height: 28px;
+            font-size: 1.4rem;
+            flex-shrink: 0;
         }
         .skill-card img { object-fit: contain; }
         .skill-card span {
-            font-size: 0.78rem; color: var(--text-secondary);
-            text-align: center; font-weight: 500;
+            font-size: 0.88rem; color: var(--text-secondary);
+            font-weight: 500; white-space: nowrap;
         }
         .skills-panel { display: none; }
         .skills-panel.active { display: block; }
@@ -349,6 +428,7 @@
             overflow: hidden;
             transition: all 0.4s ease;
             cursor: default;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
         }
         .project-card:hover {
             border-color: var(--border-hover);
@@ -367,13 +447,13 @@
         }
         .project-links { display: flex; gap: 10px; }
         .project-links a {
-            color: var(--text-muted); font-size: 1rem;
+            color: var(--text-secondary); font-size: 1.2rem;
             transition: color 0.3s; text-decoration: none;
         }
         .project-links a:hover { color: var(--accent); }
         .project-body { padding: 20px 28px 28px; }
         .project-body h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 1.2rem; font-weight: 600;
             margin-bottom: 10px;
         }
@@ -388,7 +468,7 @@
             font-size: 0.75rem; font-weight: 500;
             background: var(--accent-glow);
             color: var(--accent-light);
-            border: 1px solid rgba(108,99,255,0.15);
+            border: 1px solid rgba(79,70,229,0.12);
         }
 
         /* ── Experience ── */
@@ -396,43 +476,132 @@
         .timeline::before {
             content: ''; position: absolute;
             left: 7px; top: 0; bottom: 0;
-            width: 2px; background: var(--border);
+            width: 2px; background: var(--gradient-1);
+            opacity: 0.3;
         }
         .timeline-item {
             position: relative; margin-bottom: 48px;
             padding: 28px; border-radius: 14px;
             background: var(--bg-card);
             border: 1px solid var(--border);
-            transition: all 0.3s;
+            transition: all 0.4s ease;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
         }
         .timeline-item:hover {
             border-color: var(--border-hover);
+            transform: translateX(8px);
             box-shadow: var(--shadow-glow);
         }
         .timeline-dot {
             position: absolute; left: -40px; top: 32px;
             width: 16px; height: 16px; border-radius: 50%;
             background: var(--accent); border: 3px solid var(--bg-primary);
-            box-shadow: 0 0 0 3px var(--accent-glow);
+            box-shadow: 0 0 0 3px rgba(79,70,229,0.2);
+            transition: all 0.4s ease;
+        }
+        .timeline-item:hover .timeline-dot {
+            box-shadow: 0 0 0 6px rgba(79,70,229,0.15), 0 0 20px rgba(79,70,229,0.3);
+            transform: scale(1.3);
         }
         .timeline-date {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 0.78rem; color: var(--accent);
             margin-bottom: 8px; letter-spacing: 0.5px;
         }
         .timeline-item h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 1.25rem; font-weight: 600;
             margin-bottom: 4px;
         }
         .timeline-item h4 {
             color: var(--accent-secondary); font-size: 0.95rem;
-            font-weight: 500; margin-bottom: 12px;
+            font-weight: 500; margin-bottom: 16px;
+        }
+        .timeline-item ul {
+            list-style: none; padding: 0;
+        }
+        .timeline-item ul li {
+            color: var(--text-secondary); font-size: 0.9rem;
+            line-height: 1.7; padding-left: 20px;
+            position: relative; margin-bottom: 10px;
+        }
+        .timeline-item ul li::before {
+            content: '▹'; position: absolute;
+            left: 0; color: var(--accent);
+            font-size: 0.9rem;
         }
         .timeline-item p {
             color: var(--text-secondary); font-size: 0.9rem;
             line-height: 1.7;
         }
+
+        /* ── Research Publications ── */
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 24px;
+        }
+        .publication-card {
+            padding: 32px; border-radius: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .publication-card::before {
+            content: ''; position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .publication-card:hover::before {
+            transform: scaleX(1);
+        }
+        .publication-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+        .publication-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            background: var(--accent-glow);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; color: var(--accent);
+            margin-bottom: 20px;
+        }
+        .publication-card h3 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.15rem; font-weight: 600;
+            margin-bottom: 6px; line-height: 1.4;
+        }
+        .publication-venue {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 0.78rem; color: var(--accent);
+            margin-bottom: 16px; letter-spacing: 0.3px;
+        }
+        .publication-card ul {
+            list-style: none; padding: 0;
+        }
+        .publication-card ul li {
+            color: var(--text-secondary); font-size: 0.9rem;
+            line-height: 1.7; padding-left: 20px;
+            position: relative; margin-bottom: 8px;
+        }
+        .publication-card ul li::before {
+            content: '▹'; position: absolute;
+            left: 0; color: var(--accent);
+        }
+        .publication-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-top: 16px; font-size: 0.85rem;
+            color: var(--accent); text-decoration: none;
+            font-weight: 500; transition: gap 0.3s ease;
+        }
+        .publication-link:hover { gap: 10px; }
 
         /* ── Achievements ── */
         .achievements-grid {
@@ -503,7 +672,7 @@
             width: 100%; padding: 14px 18px;
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 10px; color: var(--text-primary);
-            font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+            font-family: 'Times New Roman', Times, serif; font-size: 0.95rem;
             transition: border-color 0.3s;
             outline: none;
         }
@@ -548,7 +717,7 @@
             .nav-links {
                 display: none; position: fixed;
                 top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(10,10,15,0.97);
+                background: rgba(248,249,252,0.97);
                 flex-direction: column;
                 align-items: center; justify-content: center;
                 gap: 28px;
@@ -562,17 +731,19 @@
             .hero-image { width: 240px; height: 240px; margin: 0 auto; }
             .hero-stats { justify-content: center; gap: 24px; margin-top: 32px; }
             .hero-greeting { justify-content: center; }
-            .about-content { flex-direction: column; }
+            .about-content { flex-direction: column; align-items: center; }
+            .about-photo { width: 240px; height: 290px; }
             .about-highlights { grid-template-columns: 1fr; }
             .contact-content { flex-direction: column; }
             .projects-grid { grid-template-columns: 1fr; }
+            .publications-grid { grid-template-columns: 1fr; }
             .section-title { font-size: 2rem; }
         }
 
         @media (max-width: 600px) {
             .hero-name { font-size: 2.2rem; }
             .hero-stats { flex-direction: column; align-items: center; gap: 16px; }
-            .skills-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+            .skills-grid { gap: 10px; }
         }
     </style>
 </head>
@@ -590,14 +761,16 @@
 
 <!-- Navbar -->
 <nav class="navbar" id="navbar">
-    <a href="#home" class="nav-logo">Shantesh Vinayka</a>
+    <a href="#home" class="nav-logo">SV</a>
     <ul class="nav-links" id="navLinks">
         <li><a href="#home" onclick="closeNav()">Home</a></li>
         <li><a href="#about" onclick="closeNav()">About</a></li>
+        <li><a href="#education" onclick="closeNav()">Education</a></li>
         <li><a href="#skills" onclick="closeNav()">Skills</a></li>
         <li><a href="#projects" onclick="closeNav()">Projects</a></li>
         <li><a href="#experience" onclick="closeNav()">Experience</a></li>
         <li><a href="#achievements" onclick="closeNav()">Achievements</a></li>
+        <li><a href="#research" onclick="closeNav()">Research</a></li>
         <li><a href="#contact" onclick="closeNav()">Contact</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -611,19 +784,10 @@
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
 
-    <div class="hero-content">
-        <div class="hero-text">
-            <h1 class="hero-name">Shantesh<br><span class="highlight">Vinayka</span></h1>
-            <p class="hero-tagline">M.S. Computer Science @ Northeastern University</p>
-            <div class="hero-roles">
-                <span class="role" id="roleText"></span><span class="cursor-blink">|</span>
-            </div>
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-outline"><i class="fas fa-rocket"></i> View Projects</a>
-                <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
-            </div>
+    <div class="hero-content" style="justify-content: center; text-align: center;">
+        <div class="hero-text hero-fade-in">
+            <h1 class="hero-name">Welcome to<br><span class="highlight">Shantesh Vinayka's</span><br>Portfolio</h1>
         </div>
-<div class="hero-image"> <div class="hero-image-frame"> <img src="photo.jpg" alt="Shantesh" style="width:100%;height:100%;object-fit:cover;"> </div> <div class="hero-image-decoration"></div> </div>
     </div>
 </section>
 
@@ -633,26 +797,42 @@
         <h2 class="section-title">About Me</h2>
     </div>
     <div class="about-content fade-in">
+        <div class="about-photo">
+            <div class="about-photo-frame">
+                <img src="photo.jpg" alt="Shantesh Vinayka">
+            </div>
+            <div class="about-photo-decoration"></div>
+        </div>
         <div class="about-text">
             <p>Hi, I'm Shantesh, a Computer Science graduate student at Northeastern University focused on Data Science and AI. I build things that sit at the intersection of intelligent systems and real-world problems from multi-agent AI pipelines and deep learning models to production APIs and scalable cloud deployments. I am not driven just by the tech itself, but with the moment that something I've built actually helps someone make a better decision or saves them hours of work they shouldn't have been doing in the first place. I prototype fast, learn from what breaks, and ship things that hold up.</p>
-            <div class="about-highlights">
-                <div class="about-highlight-item">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>M.S. CS — Northeastern University</span>
-                </div>
-                <div class="about-highlight-item">
-                    <i class="fas fa-brain"></i>
-                    <span>Focus: AI, ML & Data Science</span>
-                </div>
-                <div class="about-highlight-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Boston, Massachusetts</span>
-                </div>
-                <div class="about-highlight-item">
-                    <i class="fas fa-file-alt"></i>
-                    <span>Published NLP Researcher</span>
-                </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ EDUCATION ═══════════════════ -->
+<section id="education">
+    <div class="fade-in">
+        <h2 class="section-title">Education</h2>
+        <div class="section-title-underline"></div>
+    </div>
+
+    <div class="education-grid fade-in">
+        <div class="education-card">
+            <div class="education-icon">
+                <i class="fas fa-graduation-cap"></i>
             </div>
+            <h3>M.S. in Computer Science</h3>
+            <p class="education-university">Northeastern University, Boston, MA</p>
+            <p class="education-details">Data Science & AI Focus | GPA: 3.7/4 | Expected April 2027</p>
+        </div>
+
+        <div class="education-card">
+            <div class="education-icon">
+                <i class="fas fa-university"></i>
+            </div>
+            <h3>B.Tech in Computer Science</h3>
+            <p class="education-university">Medi-Caps University, Indore, India</p>
+            <p class="education-details">GPA: 3.7/4 | Graduated June 2024</p>
         </div>
     </div>
 </section>
@@ -687,6 +867,7 @@
         <div class="skills-grid">
             <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"><span>TensorFlow</span></div>
             <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"><span>PyTorch</span></div>
+            <div class="skill-card"><i class="fas fa-smile-beam" style="color:#ffd21e"></i><span>Hugging Face</span></div>
             <div class="skill-card"><i class="fas fa-link" style="color:#6c63ff"></i><span>LangChain</span></div>
             <div class="skill-card"><i class="fas fa-project-diagram" style="color:#a855f7"></i><span>LangGraph</span></div>
             <div class="skill-card"><i class="fas fa-robot" style="color:#00d4aa"></i><span>RAG Systems</span></div>
@@ -696,6 +877,7 @@
             <div class="skill-card"><i class="fas fa-magic" style="color:#00d4aa"></i><span>Mistral OCR</span></div>
             <div class="skill-card"><i class="fas fa-network-wired" style="color:#a855f7"></i><span>CNN / Deep Learning</span></div>
         </div>
+
     </div>
 
     <div id="frameworks" class="skills-panel fade-in">
@@ -740,17 +922,19 @@
     <div class="fade-in">
         <h2 class="section-title">My Projects</h2>
         <p class="section-subtitle">I've built AI-driven systems and full-stack applications that solve real-world problems—from multi-agent research assistants and semantic search platforms to real-time trading systems and medical imaging classifiers. My projects span machine learning, natural language processing, database design, and production deployment, with a focus on creating scalable solutions that deliver measurable impact.</p>
-.</p>
     </div>
 
     <div class="projects-grid fade-in">
         <!-- Project 1: NVIDIA Multi-Agent RAG -->
         <div class="project-card">
             <div class="project-header">
-                <div class="project-icon"><i class="fas fa-brain"></i></div>
+                <div class="project-icon"></div>
+                <div class="project-links">
+                    <a href="https://github.com/Shanteshvinayka18/NVIDIA_Research_Assistant.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
             </div>
             <div class="project-body">
-                <h3>Multi-Agent RAG for Financial Analysis</h3>
+                <h3>NVIDIA Research Assistant</h3>
                 <p>Built a multi-agent AI research system using LangChain and LangGraph that orchestrates three specialized agents (Pinecone RAG, Snowflake analytics, web search) to analyze NVIDIA's financial performance from 500+ quarterly reports. Deployed production system with FastAPI backend and Streamlit frontend on AWS, reducing financial research time by 87% through intelligent query routing and automated data processing.</p>
                 <div class="project-tags">
                     <span>LangGraph</span><span>Pinecone</span><span>FastAPI</span><span>Streamlit</span><span>Docker</span><span>Mistral OCR</span><span>S3</span>
@@ -761,12 +945,15 @@
         <!-- Project 2: Real Estate AI -->
         <div class="project-card">
             <div class="project-header">
-                <div class="project-icon"><i class="fas fa-building"></i></div>
+                <div class="project-icon"></div>
+                <div class="project-links">
+                    <a href="https://github.com/Shanteshvinayka18/real-estate-project.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
             </div>
             <div class="project-body">
                 <h3>Real Estate AI Platform</h3>
-                <p>5-stage RAG pipeline analyzing 11.5K+ Boston properties with Pinecone vector search, Airflow ETL orchestration, and Haversine-based geo-accuracy for intelligent property recommendations.</p>
-                <div class="project-tags">
+                <p>Built an intelligent property search platform processing 11,500+ Boston properties using a 5-stage RAG pipeline with LangChain, GPT-4, and Pinecone for natural language queries. Engineered Apache Airflow ETL workflows for automated daily web scraping and data processing, deploying FastAPI backend with Streamlit interface achieving 40% improvement in property discovery efficiency.</p>
+            <div class="project-tags">
                     <span>RAG</span><span>Pinecone</span><span>FastAPI</span><span>Streamlit</span><span>Airflow</span><span>Haversine</span>
                 </div>
             </div>
@@ -775,10 +962,13 @@
         <!-- Project 3: Live Trading Platform -->
         <div class="project-card">
             <div class="project-header">
-                <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="project-icon"></div>
+                <div class="project-links">
+                    <a href="https://github.com/Shanteshvinayka18/Full-Stack-Live-Update-trading-project.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
             </div>
             <div class="project-body">
-                <h3>Live Trading Platform</h3>
+                <h3>TradeTrack - Live Trading Platform</h3>
                 <p>Created a full-stack real-time trading platform using FastAPI, React+Vite, and MySQL supporting 50,000+ concurrent users with millisecond-latency portfolio tracking. Architected database with 12 normalized tables using advanced SQL features (stored procedures, triggers, views) and built interactive Recharts dashboards displaying real-time profit/loss analytics and asset performance metrics.</p>
                 <div class="project-tags">
                     <span>FastAPI</span><span>MySQL</span><span>React</span><span>Vite</span><span>PyMySQL</span><span>Recharts</span>
@@ -789,7 +979,10 @@
         <!-- Project 4: SkillMatchAI -->
         <div class="project-card">
             <div class="project-header">
-                <div class="project-icon"><i class="fas fa-search"></i></div>
+                <div class="project-icon"></i></div>
+                <div class="project-links">
+                    <a href="https://github.com/Shanteshvinayka18/SkillMatchAI.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
             </div>
             <div class="project-body">
                 <h3>SkillMatchAI — Job Matching Platform</h3>
@@ -803,7 +996,10 @@
         <!-- Project 5: AI Customer Support -->
         <div class="project-card">
             <div class="project-header">
-                <div class="project-icon"><i class="fas fa-headset"></i></div>
+                <div class="project-icon"></div>
+                <div class="project-links">
+                    <a href="https://github.com/Shanteshvinayka18" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
             </div>
             <div class="project-body">
                 <h3>AI Customer Support Platform</h3>
@@ -817,10 +1013,13 @@
         <!-- Project 6: Diabetic Retinopathy -->
         <div class="project-card">
             <div class="project-header">
-                <div class="project-icon"><i class="fas fa-eye"></i></div>
+                <div class="project-icon"></div>
+                <div class="project-links">
+                    <a href="https://github.com/Shanteshvinayka18/Diabetic-Retinopathy-Classification.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
             </div>
             <div class="project-body">
-                <h3>Diabetic Retinopathy Detection</h3>
+                <h3>Diabetic Retinopathy Classification</h3>
                 <p>Developed a CNN-based medical imaging system using TensorFlow and PyTorch to classify diabetic retinopathy severity across 92,000+ retinal fundus images from EyePACS and APTOS datasets. Implemented image preprocessing pipeline with OpenCV and deployed Flask web application serving real-time predictions with 89.7% accuracy across 5 severity classes.</p>
                 <div class="project-tags">
                     <span>CNN</span><span>TensorFlow</span><span>PyTorch</span><span>Flask</span><span>Deep Learning</span>
@@ -834,9 +1033,9 @@
 <section id="experience">
     <div class="fade-in">
         <h2 class="section-title">Work Experience</h2>
-        <p class="section-subtitle">A timeline of professional roles where I've built, shipped, and scaled real systems.</p>
     </div>
 
+    <div class="timeline fade-in">
         <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-date">January 2025 – June 2025</div>
@@ -871,6 +1070,39 @@
     </div>
 </section>
 
+<!-- ═══════════════════ RESEARCH PUBLICATIONS ═══════════════════ -->
+<section id="research">
+    <div class="fade-in">
+        <h2 class="section-title">Research Publications</h2>
+        <p class="section-subtitle">Published research exploring the intersection of NLP, speech processing, and human-computer interaction.</p>
+    </div>
+
+    <div class="publications-grid fade-in">
+        <div class="publication-card">
+            <div class="publication-icon"><i class="fas fa-file-alt"></i></div>
+            <h3>Enhancing Human-Robot Interaction Through Advanced Natural Language Processing Techniques</h3>
+            <div class="publication-venue">IJSREM — International Journal of Scientific Research in Engineering and Management</div>
+            <ul>
+                <li>Proposed an NLP framework integrating BERT and GPT-3 with speech recognition and emotion detection modules to enable real-time, context-aware human-robot dialogue systems</li>
+                <li>Demonstrated improvements in interaction fluency and response relevance through advanced dialogue management and sentiment-aware processing pipelines</li>
+            </ul>
+            <a href="https://ijsrem.com/download/enhancing-human-robot-interaction-through-advanced-natural-language-processing-techniques/" target="_blank" class="publication-link">
+                Read Paper <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="publication-card">
+            <div class="publication-icon"><i class="fas fa-microphone-alt"></i></div>
+            <h3>Sentiment Analysis with Speech Recognition</h3>
+            <div class="publication-venue">Medi-Caps University — Research Project</div>
+            <ul>
+                <li>Built an LSTM-based Speech and Voice Recognition System achieving 90%+ accuracy in emotion and demographic classification using diverse audio datasets (CREMA-D, SAVEE, Common Voice)</li>
+                <li>Engineered an end-to-end pipeline combining signal processing, feature extraction, and deep learning classifiers to perform real-time sentiment analysis directly from voice inputs without prior transcription</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 <!-- ═══════════════════ CONTACT ═══════════════════ -->
 <section id="contact">
     <div class="fade-in">
@@ -894,7 +1126,7 @@
                 <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
                 <div class="contact-detail-text">
                     <span>Email</span>
-                    <a href="mailto:vinayka.s@northeastern.edu">vinayka.s@northeastern.edu</a>
+                    <a href="/cdn-cgi/l/email-protection#eb9d82858a92808ac598ab8584999f838e8a989f8e9985c58e8f9e"><span class="__cf_email__" data-cfemail="85f3ecebe4fceee4abf6c5ebeaf7f1ede0e4f6f1e0f7ebabe0e1f0">[email&#160;protected]</span></a>
                 </div>
             </div>
 
@@ -935,10 +1167,10 @@
 
 <!-- Footer -->
 <footer>
-    <p>&copy; 2025 Shantesh Vinayka. All Rights Reserved.</p>
+    <p>&copy; 2026 Shantesh Vinayka. All Rights Reserved.</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── Loader ──
     let percent = 0;
     const loaderPercent = document.getElementById('loader-percent');
@@ -976,24 +1208,26 @@
     }
 
     // ── Typing Effect ──
-    const roles = ['AI / ML Engineer', 'Software Engineer', 'Data Scientist', 'Full-Stack Developer', 'NLP Researcher'];
-    let ri = 0, ci = 0, deleting = false;
     const roleEl = document.getElementById('roleText');
-    function typeRole() {
-        const current = roles[ri];
-        if (!deleting) {
-            roleEl.textContent = current.substring(0, ci + 1);
-            ci++;
-            if (ci === current.length) { deleting = true; setTimeout(typeRole, 1800); return; }
-            setTimeout(typeRole, 80);
-        } else {
-            roleEl.textContent = current.substring(0, ci - 1);
-            ci--;
-            if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; setTimeout(typeRole, 400); return; }
-            setTimeout(typeRole, 40);
+    if (roleEl) {
+        const roles = ['AI / ML Engineer', 'Software Engineer', 'Data Scientist', 'Full-Stack Developer', 'NLP Researcher'];
+        let ri = 0, ci = 0, deleting = false;
+        function typeRole() {
+            const current = roles[ri];
+            if (!deleting) {
+                roleEl.textContent = current.substring(0, ci + 1);
+                ci++;
+                if (ci === current.length) { deleting = true; setTimeout(typeRole, 1800); return; }
+                setTimeout(typeRole, 80);
+            } else {
+                roleEl.textContent = current.substring(0, ci - 1);
+                ci--;
+                if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; setTimeout(typeRole, 400); return; }
+                setTimeout(typeRole, 40);
+            }
         }
+        typeRole();
     }
-    typeRole();
 
     // ── Cursor Blink ──
     const style = document.createElement('style');
@@ -1011,10 +1245,4 @@
     });
 
     // ── Scroll Reveal ──
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+    const observer = new In
