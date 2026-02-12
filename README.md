@@ -16,11 +16,9 @@
 
 - 🎓 **M.S. in Computer Science** @ Northeastern University, Boston *(Expected Dec 2027)*
 - 🎓 **B.Tech in Computer Science** @ Medi-Caps University, India *(June 2025)*
-- 🔭 Currently working on **Multi-Agent AI Systems & RAG Pipelines**
-- 🌱 Exploring **LangGraph, MCP Servers, and Advanced Prompt Engineering**
-- 📄 Published researcher in **NLP & Human-Robot Interaction** ([IJSREM](https://ijsrem.com/download/enhancing-human-robot-interaction-through-advanced-natural-language-processing-techniques/))
-- 🏐 Former **National Volleyball Team Captain** & Certified Referee
-- ⚡ **Aim. Work. Achieve.**
+- Exploring **LangGraph, MCP Servers, and Advanced Prompt Engineering**
+- Published researcher in **NLP & Human-Robot Interaction** ([IJSREM](https://ijsrem.com/download/enhancing-human-robot-interaction-through-advanced-natural-language-processing-techniques/))
+
 
 ---
 
