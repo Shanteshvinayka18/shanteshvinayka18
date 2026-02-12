@@ -2,9 +2,9 @@
 
 # Hi, I'm Shantesh Vinayka 👋
 
-### AI/ML Engineer · Software Engineer · Data Scientist
+### AI/ML Engineer · Data Scientist
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-000?style=for-the-badge&logo=vercel&logoColor=white)](https://shanteshvinayka18.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000?style=for-the-badge&logo=vercel&logoColor=white)]([https://shanteshvinayka18.github.io](https://shanteshvinayka18.github.io/shanteshvinayka18/))
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shantesh-vinayka/)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:vinayka.s@northeastern.edu)
 
